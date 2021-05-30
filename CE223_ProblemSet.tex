@@ -1,0 +1,506 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{header-n0}{%
+\section{eExercise 1}\label{header-n0}}
+
+1.1
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Find the solution to the following first-order differential equations:
+\end{enumerate}
+
+\[y'+y = e^{-2x}\]
+
+\[xy'-2y = x^4\]
+
+\textbf{Answer}
+
+1.( a )
+
+\[y' + y = e^{-2x}\]
+
+Solution to homogenous{[}齐次{]} pat,
+
+\begin{quote}
+先求齐次式, 求不定积分
+\end{quote}
+
+\[y'+y=0\]
+
+is
+
+\[\frac{dy}{dx} + y =0\]
+
+\[\frac{dy}{dx} =- y\]
+
+\[\frac{dy}{y} =- dx\]
+
+\[\frac{dy}{y} + dx =0\]
+
+\[\frac{dy}{y}+dx = 0\]
+
+\[\int {\frac{dy}{y}} + \int dx = \int0\]
+
+\[lny+x=lnk\]
+
+\[ln\frac{y}{k}=-x\]
+
+\[y=ke^{-x}\]
+
+Solution to nonhomogenous e.g. found using variation method
+
+\[y = K(x)e^{-x}\]
+
+\begin{quote}
+齐次方程通解, 通解带入原式, (前面求导+后面求导), 然后积分求出 \(K(x)\)
+\end{quote}
+
+Thus
+\includegraphics{D:/W_WORKSPACE/E_ESSEX/CE223/CE223_MD/CE223_ProblemSet.assets/image-20210412084841509.png}
+
+\[y' + y = e^{-2x}\]
+
+\[[K(x)e^{-x}]' + K(x)e^{-x} = e^{-2x}\]
+
+\[[K(x)]'e^{-x} + K(x)[e^{-x}]'  + K(x)e^{-x} = e^{-2x}\]
+
+\[K'(x)e^{-x}- K(x)e^{-x} + K(x)e^{-x} = e^{-2x}\]
+
+\[K'(x) = e^{-x}\]
+
+\[K(x) = \int e^{-x}dx+k\]
+
+Therefore
+
+\begin{quote}
+\(K(x)\) 代回原式
+\end{quote}
+
+\[K(x)=-e^{-x}+ k\]
+
+Hence, the solution to (1) is
+
+\[y = (-e^{-x}+k)e^{-x}=-e^{-2x}+ke^{-x} ,(Check)\]
+
+1.( b )
+
+\[xy' - 2y =x^4\]
+
+Solutions to homogeneous equations
+
+\begin{quote}
+求齐次方程通解
+\end{quote}
+
+\[xy' - 2y = 0\]
+
+\[x · \frac{dy}{dx} - 2y = 0\]
+
+\[x · \frac{dy}{dx}  = 2y\]
+
+\[x · dy =  2y · dx\]
+
+\[\frac{dy}{y}= 2\frac{dx}{x}\]
+
+\[\int \frac{dy}{y} = 2 \int{\frac{dx}{x} + \int 0 }\]
+
+\[ln y = 2lnx + ln k\]
+
+\[ln y = ln x^2 + lnk\]
+
+\[ln y = ln ( k·x^2 )\]
+
+\[y = kx^2\]
+
+Solution to nonhomogenous e.g. found using variation method
+
+\[y = K(x)x^2\]
+
+Using parameter variation method, the solution to nonhomogenous e.g. is
+found
+
+\begin{quote}
+齐次方程通解, 通解带入原式, (前面求导+后面求导), 然后积分求出 \(K(x)\)
+\end{quote}
+
+\[xy' - 2y =x^4\]
+
+\[x [K(x)x^2]' -2 ·K(x)x^2 = x^4\]
+
+\[x \{ [K(x)]'x^2 + K(x)[x^2]'\} -2 ·K(x)x^2 = x^4\]
+
+\[x \{ K'(x)x^2 + K(x)2x\} -2 ·K(x)x^2 = x^4\]
+
+\[K'(x)x^3 + 2·K(x)x^2 -2 ·K(x)x^2 = x^4\]
+
+\[K'(x) x^3 = x^4\]
+
+\[K'(x) = x\]
+
+\[\int K'(x) =\int x+ \int0\]
+
+\[K(x) = \frac{1}{2} x^2 + k\]
+
+Thus
+
+\[y = K(x) x^2\]
+
+\[y =  (\frac{1}{2} x^2 + k ) x^2\]
+
+\[y =  \frac{1}{2} x^4 + k·x^2, (Check)\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Verify that \(y = e^{−x}\) is a solution to the differential equation
+  \(y''+2y'+y = 0\). What is special about this equation? Use method of
+  parameter variation to find the second solution.
+\end{enumerate}
+
+\textbf{Answer}
+
+To verify \(y = e^{−x}\)
+
+\[y ' = -e^{-x}\]
+
+\[y'' = e^{-x}\]
+
+Thus,
+
+\[y''+2y'+y = 0\]
+
+\[e^{-x} + 2(-e^{-x})+e^{-x} = 0\]
+
+The special thing about the differential equation is that its
+characteristic e.g. has repeat roots:
+
+\[\lambda^2 + 2\lambda+1 = 0\]
+
+Parameters variations method can be applied to
+
+\begin{figure}
+\centering
+\includegraphics{D:/W_WORKSPACE/E_ESSEX/CE223/CE223_MD/CE223_ProblemSet.assets/image-20210412111118727.png}
+\caption{}
+\end{figure}
+
+\[y = K(x)e^{-x}\]
+
+Substitution in the differential equation to obtains
+
+\[K''(x)e^{-x}-K'(x)e^{-x}-K'(x)e^{-x}+K(x)e^{-x}+2[K'(x)e^{-x} - K(x)e^{-x}] + K(x)e^{-x} = 0\]
+
+\[K''(x)e^{-x} = 0\]
+
+\[K''(x) = 0\]
+
+\[K'(x) = A , (constant)\]
+
+\[K(x) = Ax + B\]
+
+Thus,
+
+\[y = (Ax +B) e^{-x}\]
+
+\[y = Axe^{-x}_{\ \ \ \ second\ from P_oV_o} + Be^{-x}_{\ \ \ \ original }, complete\ solution\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Verify that \(y = −cos(x)\) is a solution to the differential equation
+  \(y''−y = 2cos(x)\). Find the general solution of the equation.
+\end{enumerate}
+
+\begin{quote}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ line:     }\FunctionTok{\textbackslash{}ldots} 
+\NormalTok{ diagonal: }\FunctionTok{\textbackslash{}ddots} 
+\NormalTok{ vertical: }\FunctionTok{\textbackslash{}vdots}
+\end{Highlighting}
+\end{Shaded}
+
+\[line \ldots\]
+
+\[diagonal \ddots\]
+
+\[vertical \vdots\]
+
+\begin{figure}
+\centering
+\includegraphics{D:/W_WORKSPACE/E_ESSEX/CE223/CE223_MD/CE223_ProblemSet.assets/UBhLB.jpg}
+\caption{}
+\end{figure}
+\end{quote}
+
+\textbf{Answer}
+
+Considering \(y=-\cos(x)\)
+
+\begin{pmatrix}
+
+-3a_1 + 2 a_0 = 0 
+\\ 2a_1=4
+\\ 2b = 1
+\\ -2c_1 + bc_2 = 1
+\\ -2c_2 -bc_1 = 0 
+
+\end{pmatrix}
+
+\rightarrow
+
+\begin{Bmatrix}
+
+
+
+
+\end{Bmatrix}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Find the particular solution{[}特解{]} of the differential equation
+  \(y''−3y'+2y = 4x + e^{3x} + sin(2x)\) . What is the general solution
+  to the equation?
+\end{enumerate}
+
+\textbf{Answer}
+
+The particular solution, \(y_p\), has an expression ( shape ), similar
+to the excitation function, i.e.
+
+\[y_p =a_0 + a_1x\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Find the solution to \(y'' + y = sin(5t)\) . If the input to this
+  differential equation, \(sin(5t)\), (providing the forced oscillation)
+  is replaced by \(sin(t)\), find the solution.
+
+  Note:
+
+  \[y' = \frac{d}{dx}y \ and \ y'' = \frac{d^2}{dx^2}y\]
+
+  (derivatives are with respect to x)
+\end{enumerate}
+
+\[y' =\frac{d}{dt}y\ and\ y''=\frac{d^2}{dt^2}y\]
+
+(derivatives are with respect to t)
+
+\textbf{Answer}
+
+\hypertarget{header-n148}{%
+\section{Exercise 2}\label{header-n148}}
+
+\hypertarget{header-n149}{%
+\subsubsection{P1 Find the relationship between the output voltage and
+input voltage in the following circuits both in the time-domain and in
+the Laplace-domain. Assuming the initial conditions for C and L are zero
+and the excitation is impulsive find the behaviour of the output
+voltage.}\label{header-n149}}
+
+\hypertarget{header-n150}{%
+\subsubsection{P2 If the impulsive excitation is replaced by a
+sinusoidal excitation, find the frequency domain voltage transfer
+function for each case.}\label{header-n150}}
+
+\hypertarget{header-n151}{%
+\subsubsection{P5 Then find the mag. and phase of each transfer
+function.}\label{header-n151}}
+
+\begin{figure}
+\centering
+\includegraphics{D:/W_WORKSPACE/E_ESSEX/CE223/CE223_MD/CE223_ProblemSet.assets/image-20210412171719058.png}
+\caption{}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{D:/W_WORKSPACE/E_ESSEX/CE223/CE223_MD/CE223_ProblemSet.assets/image-20210412171807625.png}
+\caption{}
+\end{figure}
+
+\textbf{Answer:}
+
+\begin{figure}
+\centering
+\includegraphics{D:/W_WORKSPACE/E_ESSEX/CE223/CE223_MD/CE223_ProblemSet.assets/image-20210529205254309.png}
+\caption{}
+\end{figure}
+
+writing voltage around the
+
+\begin{quote}
+电容是 1/C 积分 i(t)
+\end{quote}
+
+\[+ R_i(t) + \frac{1}{C}\int i(t)dt +R_2 i(t) = V_i(t)\]
+
+\[-V_i(t) + R_i(t) + \frac{1}{C}\int i(t)dt +R_2 i(t) = 0\]
+
+where
+
+\[i(t) =\frac{V_2(t)}{R_2}\]
+
+Differentiate
+\(-V_i(t) + R_i(t) + \frac{1}{C}\int i(t)dt +R_2 i(t) = 0\) with respect
+to i
+
+\begin{quote}
+同时求导
+\end{quote}
+
+\[-\frac{d V_i(t)}{dt} + R_1 \frac{d i(t)}{dt} + \frac{1}{C}i(t) + R_2 \frac{d i(t) }{dt} = 0\]
+
+\hypertarget{header-n169}{%
+\subsubsection{P2 If the impulsive excitation is replaced by a
+sinusoidal excitation, find the frequency domain voltage transfer
+function for each case.}\label{header-n169}}
+
+\begin{figure}
+\centering
+\includegraphics{D:/W_WORKSPACE/E_ESSEX/CE223/CE223_MD/CE223_ProblemSet.assets/image-20210530123836468.png}
+\caption{}
+\end{figure}
+
+\[i(t) = i_1(t) +i_2(t)\]
+
+Therefore,
+
+\[i(t)\]
+
+\hypertarget{header-n177}{%
+\subsubsection{P5 Then find the mag. and phase of each transfer
+function.}\label{header-n177}}
+
+\begin{figure}
+\centering
+\includegraphics{D:/W_WORKSPACE/E_ESSEX/CE223/CE223_MD/CE223_ProblemSet.assets/image-20210530123513220.png}
+\caption{}
+\end{figure}
+
+This is from the circuit
+
+\[i(t) = i_1(t)+i_2(t)\]
+
+therefore
+
+\begin{quote}
+并联 1/R, 1/L，C
+\end{quote}
+
+\[i(t) = \frac{V_o(t)}{R}+C\frac{dV_o(t)}{dt}\]
+
+\# Exercise 3
+
+\hypertarget{header-n201}{%
+\section{Exercise 4}\label{header-n201}}
+
+\end{document}
